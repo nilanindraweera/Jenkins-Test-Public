@@ -12,7 +12,7 @@ pipeline
             when{
                 expression
                 {
-                    BRANCH_NAME 'Develop'&& CODE_CHANGES == true
+                    BRANCH_NAME == 'Develop'&& CODE_CHANGES == true
                 }
             }
             steps
@@ -27,7 +27,7 @@ pipeline
             {
                 expression
                 {
-                    BRANCH_NAME 'Develop'|| BRANCH_NAME "Master"
+                    BRANCH_NAME == 'Develop' || BRANCH_NAME == "Master"
                 }
             }
             steps
