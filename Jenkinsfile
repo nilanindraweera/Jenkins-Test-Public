@@ -8,7 +8,7 @@ pipeline
     }
     stages
     {
-        stages("Build"){
+        stage("Build"){
             when{
                 expression
                 {
@@ -22,7 +22,7 @@ pipeline
                 echo "Build Completed..."
             }                
         }
-        stages("Test"){
+        stage("Test"){
             when
             {
                 expression
@@ -37,7 +37,7 @@ pipeline
                 echo "Test Completed..."
             }
         }
-        stages("Deploy"){
+        stage("Deploy"){
                 echo "Deploying..."
 
                 echo "Deploy Completed..."
