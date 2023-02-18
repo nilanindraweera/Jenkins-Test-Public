@@ -9,7 +9,8 @@ pipeline
     stages
     {
         stage("Build"){
-            when{
+            when
+            {
                 expression
                 {
                     BRANCH_NAME == 'Develop'&& CODE_CHANGES == true
@@ -38,9 +39,12 @@ pipeline
             }
         }
         stage("Deploy"){
+            steps
+            {
                 echo "Deploying..."
 
                 echo "Deploy Completed..."
+            }
         }
     }
 }
