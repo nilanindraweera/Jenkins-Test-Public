@@ -6,6 +6,11 @@ pipeline
     {
         pollSCM '*/5 * * * *'
     }
+    environment
+    {
+        NEW_VERSION = "0.0.0.1"
+        MY_BRANCH_NAME = "Develop"
+    }
     stages
     {
         stage("Build"){
@@ -13,7 +18,7 @@ pipeline
             {
                 expression
                 {
-                    BRANCH_NAME == 'Develop'//&& CODE_CHANGES == true
+                    MY_BRANCH_NAME == 'Develop'//&& CODE_CHANGES == true
                 }
             }
             steps
@@ -28,7 +33,7 @@ pipeline
             {
                 expression
                 {
-                    BRANCH_NAME == 'Develop' || BRANCH_NAME == "Master"
+                    MY_BRANCH_NAME == 'Develop' || MY_BRANCH_NAME == "Master"
                 }
             }
             steps
